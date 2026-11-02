@@ -2,7 +2,8 @@
 .DS_Store
 /.build/
 /work/
-/outputs/
+/outputs/*
+!/outputs/GesturePilot.zip
 /local-backup/
 
 # Built applications and installers

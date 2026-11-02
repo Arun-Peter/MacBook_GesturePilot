@@ -2,6 +2,8 @@
 
 GesturePilot is a personal macOS menu-bar utility for assigning actions to exact three- or four-finger trackpad swipes and exact three-finger Magic Mouse swipes.
 
+**[Download the compiled GesturePilot app for Apple silicon](https://github.com/Arun-Peter/MacBook_GesturePilot/raw/refs/heads/main/outputs/GesturePilot.zip)**, then follow the installation steps below. The `Sources/`, `App/`, `scripts/`, and `Tests/` folders contain the source and supporting files for anyone who wants to change and rebuild the app.
+
 ## Compatibility
 
 | Requirement | Current status |
@@ -22,8 +24,8 @@ current build script targets the architecture of the Mac running it.
 
 ## Install a shared compiled ZIP
 
-1. Obtain the compiled `GesturePilot.zip` (or a versioned `GesturePilot-…-macOS-arm64.zip`)
-   from a source you trust. Extract it to get `GesturePilot.app`.
+1. [Download `outputs/GesturePilot.zip`](https://github.com/Arun-Peter/MacBook_GesturePilot/raw/refs/heads/main/outputs/GesturePilot.zip)
+   and extract it to get `GesturePilot.app`.
 2. Move the app to `/Applications`, then open it. When updating, quit the previous
    instance before replacing it.
 3. Because this build is not notarized, macOS may block the first launch. If you
@@ -41,9 +43,12 @@ current build script targets the architecture of the Mac running it.
 The recipient configures their own gesture mappings. The compiled ZIP does not
 contain the developer's saved settings or transfer macOS permission grants.
 
-GitHub's **Code → Download ZIP** is a source-code archive, not the compiled app.
-Build that source using the instructions below. Generated app ZIPs are excluded
-from Git; they can be shared separately or attached to a GitHub Release.
+GitHub's **Code → Download ZIP** includes the source files and the compiled app
+archive in `outputs/`. Download `outputs/GesturePilot.zip` directly if you only
+want to install the app. Clone the repository and use the build instructions
+below if you want to change its functionality. Rebuilds update
+`outputs/GesturePilot.zip`; commit the rebuilt ZIP with source changes so the
+download matches the current code.
 
 For smoother distribution, a future release would need Developer ID signing
 and Apple notarization. The current ad-hoc signature verifies bundle integrity
@@ -117,7 +122,8 @@ third-party library is required to build the current app.
 - `App/`: bundle metadata and code-signing requirements.
 - `scripts/`: build, palm icon generation and icon packaging.
 - `Tests/`: disposable-window test fixture and its build script.
-- `outputs/`: compiled app ZIPs, excluded from source control.
+- `outputs/`: the downloadable `GesturePilot.zip` is tracked; other local build
+  archives are excluded from source control.
 - `local-backup/`: a local snapshot of gesture settings and migration checksums,
   excluded from source control.
 
@@ -163,5 +169,5 @@ Accessibility permission and launch-at-login registration must be configured
 separately on a new Mac. Do not include `local-backup/` in a public repository.
 
 Source repository: [Arun-Peter/MacBook_GesturePilot](https://github.com/Arun-Peter/MacBook_GesturePilot).
-The ignore rules keep generated builds, local settings and private signing
+The ignore rules keep other generated builds, local settings and private signing
 material out of source control. No open-source license has been selected yet.
