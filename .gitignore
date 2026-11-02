@@ -1,0 +1,21 @@
+# Generated build output, caches and local diagnostics
+.DS_Store
+/.build/
+/work/
+/outputs/
+/local-backup/
+
+# Built applications and installers
+*.app/
+*.dmg
+*.pkg
+
+# Private signing material, if added in future
+*.p12
+*.pfx
+*.key
+
+# Local environment settings
+.env
+.env.*
+!.env.example
